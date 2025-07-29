@@ -74,3 +74,50 @@ Example Code
 const arr = ["A", "b", "C"];
 arr.some(letter => letter === letter.toUpperCase());
 Update the isSpam() function to use the some() method, which will check if testing msg against any of the regular expressions in denyList returns true."
+
+Step 12
+The next regular expression you will work on is one that matches mentions of dollar amounts.
+
+Declare a dollarRegex variable, and assign it a case-insensitive regular expression that matches the text dollars.
+
+Add your dollarRegex to the denyList array so that you can test the regular expression. Then try entering a message in your app.
+
+Step 13
+You need to match a number before the text dollars. While you could write out 0|1|2 and so on, regular expressions have a feature that makes this easier.
+
+A character class is defined by square brackets, and matches any character within the brackets. For example, [aeiou] matches any character in the list aeiou. You can also define a range of characters to match using a hyphen. For example, [a-z] matches any character from a to z.
+
+Add a character class to match the digits 0 through 9 to your dollarRegex expression - remember the digit must come before the word dollars, and there should be a space between the digit and the word.
+
+Step 14
+The dollar value may be more than one digit. To match this, the + quantifier can be used - this matches one or more consecutive occurrences. For example, the regular expression /a+/ matches one or more consecutive a characters.
+
+Update your regular expression to match one or more consecutive digits.
+
+Step 15
+A capture group is a way to define a part of the expression that should be captured and saved for later reference. You can define a capture group by wrapping a part of your expression in parentheses. For example, /h(i|ey) camper/ would match either hi camper or hey camper, and would capture i or ey in a group.
+
+Between your digits and your dollars text, you want to catch place values.
+
+Add a capture group to your dollarRegex and use the | token inside it to allow hundred, thousand, million, or billion between your digits and your dollars text.
+
+Step 16
+Now that you have your capture group, you can mark the entire pattern as an optional match. The ? quantifier matches zero or one occurrence of the preceding character or group. For example, the regular expression /colou?r/ matches both color and colour, because the u is optional.
+
+Mark your capture group as optional.
+
+Step 17
+While this expression does match 1 hundred dollars, it will not match 1  hundred  dollars, or 10 dollars.
+
+Spam messages can and will find a way to exploit flaws in your detection. Time to improve your regex.
+
+Replace the first literal space with the \s* expression. The \s character class matches whitespace, such as spaces, tabs, and new lines. The * quantifier means "match the previous character 0 or more times".
+
+Replace the second literal space with \s+. The + quantifier means "match the previous character at least one time".
+
+Step 18
+One last thing with this expression. You don't actually need the match value from your capture group, so you can turn it into a non-capturing group. This will allow you to group the characters together without preserving the result.
+
+To create a non-capturing group in a regular expression, you can add ?: after the opening parenthesis of a group. For instance, (?:a|b) will match either a or b, but it will not capture the result.
+
+Update your regular expression to use a non-capturing group.
