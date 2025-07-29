@@ -59,3 +59,18 @@ Step 9
 The alternate sequence | can be used to match either the text on the left or the text on the right of the |. For example, the regular expression /yes|no/ will match either yes or no.
 
 Update your helpRegex to match either please help or assist me.
+
+Step 10
+Before you start creating additional regular expressions, you need to update your application to check more than one regular expression.
+
+Start by declaring a denyList variable. Assign it an array containing your helpRegex.
+
+Step 11
+Arrays have a some() method. Like the filter() method, some() accepts a callback function which should take an element of the array as the argument. The some() method will return true if the callback function returns true for at least one element in the array.
+
+Here is an example of a .some() method call to check if any element in the array is an uppercase letter.
+
+Example Code
+const arr = ["A", "b", "C"];
+arr.some(letter => letter === letter.toUpperCase());
+Update the isSpam() function to use the some() method, which will check if testing msg against any of the regular expressions in denyList returns true."
