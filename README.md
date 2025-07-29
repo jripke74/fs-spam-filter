@@ -153,3 +153,31 @@ You still aren't matching free money yet, because you need to match the end of t
 Like the ^ anchor, you can use the $ anchor to match the end of the string.
 
 Update your regular expression to match either the end of the string or a space, like you did for the beginning of the string.
+
+Step 25
+Your next regular expression will match strings like stock alert. Declare a stockRegex variable and assign it a regular expression that will match the string stock alert. Remember to make it case insensitive.
+
+Add it to your denyList array as well.
+
+Step 26
+Like your freeRegex, update your stockRegex to replace the e and o characters with character classes to match the letter and the corresponding number.
+
+Step 27
+Next update your s and t characters to also match 5 and 7 respectively.
+
+Step 28
+Character classes can take more than two characters. Replace your a character with a character class that matches a, @, and 4.
+
+Step 29
+Using the same syntax, update c to match c, {, [, and (.
+
+Step 30
+Finally, allow your regex to match whole words (like you did with freeRegex).
+
+Step 31
+Your final regular expression will look for strings like dear friend. Declare a dearRegex and assign it a regular expression that will match the string dear friend. Remember to make it case insensitive, and add it to your denyList array.
+
+Step 32
+To put everything you have learned together, update your dearRegex to map the vowels to the corresponding numbers (note that i should match 1, and also match the pipe symbol |), and to match whole words.
+
+With that, your spam filter project is complete.
