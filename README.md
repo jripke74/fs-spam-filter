@@ -121,3 +121,35 @@ One last thing with this expression. You don't actually need the match value fro
 To create a non-capturing group in a regular expression, you can add ?: after the opening parenthesis of a group. For instance, (?:a|b) will match either a or b, but it will not capture the result.
 
 Update your regular expression to use a non-capturing group.
+
+Step 19
+Your next regular expression will look for strings like free money. Declare a freeRegex variable and assign it a regular expression that will match the string free money. Remember to make it case-insensitive.
+
+Then, add your new regular expression to your denyList array so you can test it.
+
+Step 20
+Spam messages often use numbers instead of letters to bypass filters. Your regular expression should catch these.
+
+Replace the e characters in your regular expression with character classes that match e and 3.
+
+Step 21
+Now update your o character to match o and 0 (the digit).
+
+Step 22
+Your regex should match whole words, not partial words. That is, you do not want to match hands-free money management.
+
+To do this, start by checking for spaces before and after your pattern. You can do this by using the meta character \s, which will match spaces, tabs, and line breaks.
+
+Step 23
+If you try entering the message free money, you'll notice it doesn't match your expression! This is because \s doesn't match the beginning or end of the text.
+
+To match the beginning of the text, you can use the ^ anchor. This asserts that your pattern match starts at the beginning of the full string.
+
+Replace your first \s character with a non-capturing group that matches \s or ^.
+
+Step 24
+You still aren't matching free money yet, because you need to match the end of the string as well.
+
+Like the ^ anchor, you can use the $ anchor to match the end of the string.
+
+Update your regular expression to match either the end of the string or a space, like you did for the beginning of the string.
